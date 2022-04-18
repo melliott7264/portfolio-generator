@@ -11,6 +11,7 @@ const inquirer = require('inquirer');
 
 //     console.log('Portfolio complete! Check out index.html to see the output!');
 // });
+
 const promptUser = () => {
     return inquirer.prompt([
         {
@@ -81,13 +82,7 @@ const promptProject = (portfolioData) => {
             default:    false
         }
 
-    ]);
-};
-
-promptUser()
-    
-    .then (promptProject)
-    
+    ])
     .then (projectData => {
         portfolioData.projects.push(projectData);
 
@@ -97,7 +92,15 @@ promptUser()
             return portfolioData;
         }
     })
+
+};
+
+promptUser()
+    
+    .then (promptProject)
+  
     .then (portfolioData => {
         console.log(portfolioData);
     });
+
 
